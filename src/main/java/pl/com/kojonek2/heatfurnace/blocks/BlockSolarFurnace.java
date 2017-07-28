@@ -18,7 +18,7 @@ public class BlockSolarFurnace extends Block {
 	public BlockSolarFurnace() {
 		super(Material.ROCK);
 
-		setUnlocalizedName(HeatFurnaceMod.MOD_ID + ":" + Names.SOLAR_FURNACE); //HeatFurnaceMod.MOD_ID + ":" + 
+		setUnlocalizedName(HeatFurnaceMod.MOD_ID + ":" + Names.SOLAR_FURNACE);
 		setRegistryName(HeatFurnaceMod.MOD_ID, Names.SOLAR_FURNACE);
 		
 		setHardness(2.0f);
