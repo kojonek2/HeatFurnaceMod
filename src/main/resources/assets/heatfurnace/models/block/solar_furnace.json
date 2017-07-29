@@ -1,14 +1,14 @@
 {
     "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
     "textures": {
-        "0": "heatfurnace:blocks/solar_furnace_front",
-        "1": "heatfurnace:blocks/solar_furnace_rest",
-        "2": "heatfurnace:blocks/solar_furnace_top",
-				"particle": "blocks/lapis_block"
+        "0": "blocks/furnace_front_off",
+        "1": "blocks/furnace_side",
+        "2": "blocks/daylight_detector_top",
+				"particle": "blocks/furnace_front_off"
     },
 		"display": {
         "gui": {
-            "rotation": [ 30, 135, 0 ],
+            "rotation": [ 30, 225, 0 ],
             "translation": [ 0, 0, 0],
             "scale":[ 0.6, 0.6, 0.6 ]
         },

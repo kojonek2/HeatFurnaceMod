@@ -18,6 +18,8 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import pl.com.kojonek2.heatfurnace.blocks.BlockSolarFurnace;
+import pl.com.kojonek2.heatfurnace.blocks.ModBlocks;
+import pl.com.kojonek2.heatfurnace.handlers.BlockRegistrationHandler;
 import pl.com.kojonek2.heatfurnace.proxy.CommonProxy;
 
 @Mod(modid = HeatFurnaceMod.MOD_ID, name = HeatFurnaceMod.NAME, version = HeatFurnaceMod.VERSION, dependencies = "required-after:FML", acceptedMinecraftVersions = "[1.12]")
@@ -37,10 +39,9 @@ public class HeatFurnaceMod {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		logger = event.getModLog();
+		this.logger = event.getModLog();
 		
-		BlockRegistrationHelper.addBlockToRegister(new BlockSolarFurnace());
-		MinecraftForge.EVENT_BUS.register(new BlockRegistrationHelper());
+		ModBlocks.addBlocksToRegister();
 		
 		proxy.preInit(event);
 	}
