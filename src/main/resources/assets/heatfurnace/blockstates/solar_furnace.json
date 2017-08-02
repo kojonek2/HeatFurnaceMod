@@ -18,6 +18,16 @@
 					"east": {
 						"y": 90
 					}
+				},
+				"is_burning": {
+					"false": {
+					
+					},
+					"true": {
+						"textures": {
+							"0": "blocks/furnace_front_on"
+						}
+					}
 				}
     }
 }

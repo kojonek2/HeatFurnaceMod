@@ -9,30 +9,32 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import pl.com.kojonek2.heatfurnace.HeatFurnaceMod;
-import pl.com.kojonek2.heatfurnace.Names;
-import pl.com.kojonek2.heatfurnace.blocks.BlockSolarFurnace;
-import pl.com.kojonek2.heatfurnace.tileentities.TileEntitySolarFurnace;
+import pl.com.kojonek2.heatfurnace.tileentities.IModTileEntity;
+import pl.com.kojonek2.heatfurnace.utils.LogHelper;
 
 public class BlockRegistrationHandler {
 	
 	public static List<Block> blocksToRegister = new ArrayList<>();
+	public static List<IModTileEntity> tileEntitiesToRegister = new ArrayList<>();
 	
 	public static void addBlockToRegister(Block block) {
 		blocksToRegister.add(block);
+	}
+	
+	public static void addTileEntityToRegister(IModTileEntity tileEntity) {
+		tileEntitiesToRegister.add(tileEntity);
 	}
 
 	@SubscribeEvent
 	public void registerBlocks(RegistryEvent.Register<Block> event) {
 		for(Block block : this.blocksToRegister) {
 			event.getRegistry().register(block);
-			HeatFurnaceMod.logger.info("Registering Block" + block.getUnlocalizedName());
-			if(block.hasTileEntity(block.getDefaultState())) {
-				GameRegistry.registerTileEntity(TileEntitySolarFurnace.class, Names.SOLAR_FURNACE_TILE_ENTITY);
-				HeatFurnaceMod.logger.info("Registering TileEntity for Block" + block.getUnlocalizedName());
-			}
+			LogHelper.info("Registering Block: " + block.getUnlocalizedName());
+		}
+		for(IModTileEntity tileEntity : tileEntitiesToRegister) {
+			GameRegistry.registerTileEntity(((TileEntity) tileEntity).getClass(), tileEntity.getRegistrationName());
+			LogHelper.info("Registering TileEntity: " + tileEntity.getRegistrationName());
 		}
 	}
 	

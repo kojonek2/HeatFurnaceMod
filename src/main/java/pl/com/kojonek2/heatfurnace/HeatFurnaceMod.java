@@ -21,11 +21,11 @@ import pl.com.kojonek2.heatfurnace.blocks.BlockSolarFurnace;
 import pl.com.kojonek2.heatfurnace.blocks.ModBlocks;
 import pl.com.kojonek2.heatfurnace.handlers.BlockRegistrationHandler;
 import pl.com.kojonek2.heatfurnace.proxy.CommonProxy;
+import pl.com.kojonek2.heatfurnace.utils.LogHelper;
 
 @Mod(modid = HeatFurnaceMod.MOD_ID, name = HeatFurnaceMod.NAME, version = HeatFurnaceMod.VERSION, dependencies = "required-after:FML", acceptedMinecraftVersions = "[1.12]")
 public class HeatFurnaceMod {
 	
-	public static Logger logger;
 	
 	public static final String MOD_ID = "heatfurnace";
 	public static final String NAME = "Heat Furnace Mod";
@@ -39,7 +39,7 @@ public class HeatFurnaceMod {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		this.logger = event.getModLog();
+		LogHelper.attachLoger(event.getModLog());
 		
 		ModBlocks.addBlocksToRegister();
 		

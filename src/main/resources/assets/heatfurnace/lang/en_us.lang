@@ -1,1 +1,2 @@
-tile.heatfurnace:solar_furnace.name=Heat Furnace
+tile.heatfurnace:solar_furnace.name=Solar Furnace
+container.heatfurnace:solar_furnace=Solar Furnace
